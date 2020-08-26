@@ -37,3 +37,27 @@ In the above code, we define 2 functions: `login` and `userInfo`.
 
 After these definitions are given to the `validate` function, we declare their functions in the code itself with the same named arguments we provided to validate. Validate will automatically parse the arguments to the proper types and validate them against the validators. If there is a problem, an error code is sent and execute stops. Otherwise, it proceeds and then calls our functions. Note, it will inject a PDO database connection `$conn` into the end of our functions.
 
+## Types
+There are several types that can be parsed:
+* `bool`
+* `int`
+* `float`
+* `string`
+
+## Validators
+There are already several important validators built in:
+* `UUID`
+* `EMAIL`
+* `URL`
+
+* `MINLENGTH($min)`
+* `MAXLENGTH($max)`
+
+## Exceptions
+Here are the following expections that may be thrown. You can throw them from your function definitions. Typically, you will throw `UserError` or `ClientError` from your code. `validate` will handle error codes and messages, you just need to worry about throwing the exceptions.
+|Class Name|Description|Error Code|
+|----------|-----------|----------|
+|UserError|Used to send errors users are meant to see|500|
+|AuthorizeError|Used if JWT Authentication fails|401|
+|ClientError|Used if arguments are invalid or if no functions match|400|
+|ProgrammerError|Used for code problems. Not seen by user. Only seen if `debug=true`|501|
