@@ -61,3 +61,6 @@ Here are the following expections that may be thrown. You can throw them from yo
 |AuthorizeError|Used if JWT Authentication fails|401|
 |ClientError|Used if arguments are invalid or if no functions match|400|
 |ProgrammerError|Used for code problems. Not seen by user. Only seen if `debug=true`|501|
+
+## Suggestions/Problems
+I'm activelly using this for my website's backend. Please let me know if you have any suggestions or big problems by submitting an issue and I'll try to look into it. Feel free to extend and submit a pull request also!
